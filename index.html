@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="GOOGLEBOT" content="NOINDEX,NOFOLLOW,NOARCHIVE">
+  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdown Parser</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Header -->
+  <header id="header">
+    <h1>Markdown Parser</h1>
+    <div class="header-menu">
+      <div class="menu-item">
+        <span class="mode-toggle" onclick="themeToggle()"></span>
+      </div>
+      <div class="menu-item">
+        <details class="accordion">
+          <summary>Input</summary>
+          <!-- Imput area -->
+          <textarea id='$input' class='input' rows='10'># Hello, world!</textarea>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <!-- Output area -->
+  <div id='$output' class='output'></div>
+
+  <!-- Side button -->
+  <div class="side-btn"><span class="side-btn-label"></div>
+
+  <script>
+  // Toggle mode feature
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark");
+ }
+// On page load set the theme.
+(function() {
+    let onpageLoad = localStorage.getItem("theme") || "light";
+    let element = document.body;
+    element.classList.add(onpageLoad);
+    document.getElementById("theme").textContent =
+      onpageLoad;
+  })();
+
+  function themeToggle() {
+    let element = document.body;
+    element.classList.toggle("dark");
+
+    let theme = localStorage.getItem("theme");
+    if (theme && theme === "dark") {
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.setItem("theme", "dark");
+    }
+
+    document.getElementById("theme").textContent = localStorage.getItem("theme");
+  }
+  </script>
+  <script src='js/markdown-wasm/markdown.js'></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

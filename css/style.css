@@ -1,0 +1,244 @@
+body {
+  max-width: 100%;
+}
+/* sp.css v0.9.0 (https://github.com/susam/spcss) */
+body {
+  color: #333;
+  font-family: helvetica, arial, sans-serif;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 40em;
+  padding: 0 1em;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 1.25em 0 0.5em 0;
+  line-height: 1.2;
+}
+a:link {
+  color: #00e;
+}
+a:visited {
+  color: #518;
+}
+a:focus, a:hover {
+  color: #03f;
+}
+a:active {
+  color: #e00;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 1em 0;
+  text-align: center;
+}
+figcaption {
+  font-size: small;
+}
+pre, code, samp, kbd {
+  font-family: monospace, monospace;
+}
+pre, code, kbd {
+  color: #050;
+}
+samp {
+  color: #730;
+}
+pre, blockquote {
+  background: #eee;
+  padding: 0.5em;
+}
+pre {
+  overflow: auto;
+}
+blockquote {
+  border-left: medium solid #ccc;
+  margin: 1em 0;
+}
+blockquote :first-child {
+  margin-top: 0;
+}
+blockquote :last-child {
+  margin-bottom: 0;
+}
+table {
+  border-collapse: collapse;
+}
+th, td {
+  border: thin solid #999;
+  padding: 0.3em 0.4em;
+  text-align: left;
+}
+
+body.dark {
+    background: #111;
+    color: #bbb;
+  }
+body.dark {
+  a:link {
+    color: #9bf;
+  }
+  a:visited {
+    color: #caf;
+  }
+  a:focus, a:hover {
+    color: #9cf;
+  }
+  a:active {
+    color: #f99;
+  }
+  pre, code, kbd {
+    color: #9c6;
+    font-family: monospace, monospace;
+  }
+  samp {
+    color: #db0;
+  }
+  pre, blockquote {
+    background: #000;
+  }
+  blockquote {
+    border-color: #333;
+  }
+  th, td {
+    border-color: #666;
+  }
+}
+
+/**/
+/* Header */
+header {
+  display: none;
+}
+header.active {
+  display: block;
+}
+
+div.header-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+div.header-menu > * {
+  flex-basis: 50%;
+  max-width: 500px;
+  padding: 1em 0;
+}
+
+/* Imput menu */
+.accordion summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion summary::after {
+  transform: translateY(-25%) rotate(45deg);
+  width: 7px;
+  height: 7px;
+  margin-left: 10px;
+  border-bottom: 3px solid #333;
+  border-right: 3px solid #333;
+  content: '';
+  transition: transform .3s;
+}
+
+.accordion [open] summary::after {
+    transform: rotate(225deg);
+}
+
+.accordion p {
+  transform: translateY(-10px);
+  opacity: 0;
+  margin: 0;
+  padding: .3em 2em 1.5em;
+  color: #333;
+  transition: transform .5s, opacity .5s;
+}
+
+.accordion [open] p {
+  transform: none;
+  opacity: 1;
+}
+
+/* Mode toggle button */
+span.mode-toggle {
+  font-weight: 600;
+}
+
+span.mode-toggle:before {
+  content: "Light Mode";
+}
+
+/* Textarea */
+textarea {
+  position: relative;
+  width: 200%;
+  left: -100%;
+  margin: 2em 0 0 0;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+/* Output */
+div.output {
+  padding-bottom: 2em;
+}
+
+/* Side buttons */
+div.side-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  font-weight: 600;
+  opacity: 0;
+  transition: 1s;
+  border-bottom: 2px solid #333;
+}
+
+div.side-btn:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  div.side-btn {
+    padding: 0;
+    opacity: 1;
+  }
+}
+
+/* Dark mode settings */
+body.dark {
+  .accordion summary {
+    color: #bbb;
+  }
+
+  .accordion summary::after {
+    border-color: #bbb;
+  }
+
+  span.mode-toggle:before {
+    content: "Dark Mode";
+  }
+
+  textarea {
+    background: #bbb;
+  }
+
+  div.side-btn {
+    border-color: #bbb;
+  }
+}
